@@ -1,6 +1,8 @@
 name: SCA Scan
 
 on:
+  schedule:
+    - cron: "21 4 * * *"
   workflow_dispatch:
     inputs:
       scan-tag:
@@ -21,7 +23,7 @@ permissions:
 
 jobs:
   sca:
-    uses: epam/ai-dial-ci/.github/workflows/sca_scheduled.yml@4.13.2
+    uses: vitado/ai-dial-ci/.github/workflows/sca_scheduled.yml@sca-canary
     with:
       repository: epam/ai-dial-admin-frontend
       images: |
